@@ -12,6 +12,7 @@ header{
     justify-content: center;
     border-bottom: 1px solid rgb(191, 191, 191);
 }
+/* HEADER */
 .container-header{
     width: 70%;
     height: 80px;
@@ -31,4 +32,28 @@ header{
 }
 .description{
     font-size: 26px;
+}
+/* MAIN */
+.search__bar__container{
+    background-color: aquamarine;
+    display: flex;
+    justify-content: space-around;
+}
+.search__bar input {
+    width: 250px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    padding-left: 40px;
+}
+input:focus{
+    border: 1px solid rgb(159, 159, 159);
+}
+.search__bar .icon{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 310px;
+    top: 190px;
 }
