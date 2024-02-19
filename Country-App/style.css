@@ -54,6 +54,29 @@ input:focus{
     width: 30px;
     height: 30px;
     position: absolute;
-    left: 310px;
+    left: 240px;
     top: 190px;
+}
+
+
+select {
+    padding: 8px;
+    font-size: 16px;
+    height: 50px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    outline: none;
+    transition: border-color 0.3s ease;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+
+option {
+    background-color: #fff;
+}
+
+option:focus {
+    background-color: #f0f0f0;
 }
