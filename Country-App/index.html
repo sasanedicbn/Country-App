@@ -8,49 +8,51 @@
   <title>Country App</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<header>
-  <div class="container-header">
-    <div class="container-child">
-      <ion-icon class="icon" name="earth-outline"></ion-icon>
-      <p class="header-title description">Country App</p>
-    </div>
-    <div class="container-child">
-      <ion-icon class="icon" name="sunny-outline"></ion-icon>
-      <p class="brightness description">Light Mode</p>
-    </div>
-  </div>
-</header>
-<main>
-  <div class="search__bar__container">
-    <div class="search__bar">
-      <ion-icon class="icon" name="search-outline"></ion-icon>
-      <input type="text" placeholder="Search for country " />
-    </div>
-    <div class="continents__select">
-      <div>
-        <select name="country__region" id="country__region">
-          <option value="All">All</option>
-          <option value="Africa">Africa</option>
-          <option value="Antarctic">Antarctica</option>
-          <option value="Asia">Asia</option>
-          <option value="Europe">Europe</option>
-          <option value="North America">North America</option>
-          <option value="South America">South America</option>
-          <option value="Oceania">Oceania</option>
-        </select>
-      </div>
-      <ul class="country__list">
-        <li class="country__list__item"></li>
-      </ul>
-    </div>
-  </div>
-</main>
 
 <body>
-  <div id="app"></div>
-  <script type="module" src="script.js"></script>
-  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <header>
+    <div class="container-header">
+      <div class="container-child">
+        <ion-icon class="icon" name="earth-outline"></ion-icon>
+        <p class="header-title description">Country App</p>
+      </div>
+      <div class="container-child">
+        <ion-icon class="icon" name="sunny-outline"></ion-icon>
+        <p class="brightness description">Light Mode</p>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="search__bar__container">
+      <div class="search__bar">
+        <ion-icon class="icon" name="search-outline"></ion-icon>
+        <input type="text" placeholder="Search for country " />
+      </div>
+      <div class="continents__select">
+        <div>
+          <select name="country__region" id="country__region">
+            <option value="All">All</option>
+            <option value="Africa">Africa</option>
+            <option value="Antarctic">Antarctica</option>
+            <option value="Asia">Asia</option>
+            <option value="Europe">Europe</option>
+            <option value="North America">North America</option>
+            <option value="South America">South America</option>
+            <option value="Oceania">Oceania</option>
+          </select>
+        </div>
+        <ul class="country__list">
+          <li class="country__list__item"></li>
+        </ul>
+      </div>
+    </div>
+  </main>
+  <footer></footer>
+
 </body>
+<script type="module" src="script.js">
+</script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
 </html>
