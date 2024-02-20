@@ -1,4 +1,6 @@
-function setCountries(countries) {}
+function setCountries(countries) {
+  const parentEl = document.querySelector(".country__list");
+}
 
 async function fetchCountry() {
   try {
