@@ -2,6 +2,7 @@ const select = document.querySelector("select");
 const parentEl = document.querySelector(".country__list");
 
 function setCountries(countries) {
+  parentEl.innerHTML = "";
   countries.forEach((country) => {
     const li = document.createElement("li");
     console.log(countries);
