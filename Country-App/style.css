@@ -113,5 +113,8 @@ option:focus {
 li{
     list-style: none;
 }
-
+.country-name{
+    text-align: center;
+    font-weight: bold;
+}
 /* FOOTER */

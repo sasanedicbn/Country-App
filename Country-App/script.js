@@ -1,5 +1,7 @@
+const select = document.querySelector("select");
+const parentEl = document.querySelector(".country__list");
+
 function setCountries(countries) {
-  const parentEl = document.querySelector(".country__list");
   countries.forEach((country) => {
     const li = document.createElement("li");
     console.log(countries);
@@ -10,6 +12,7 @@ function setCountries(countries) {
     li.appendChild(img);
 
     const name = document.createElement("p");
+    name.classList.add("country-name");
     name.textContent = country.name.common;
     li.appendChild(name);
 
@@ -17,11 +20,14 @@ function setCountries(countries) {
   });
 }
 
-async function fetchCountry() {
+select.addEventListener("change", function (event) {
+  const region = event.target.value;
+  fetchCountry(region);
+});
+
+async function fetchCountry(region) {
   try {
-    const response = await fetch(
-      `https://restcountries.com/v3.1/region/europe`
-    );
+    const response = await fetch(url);
     const data = await response.json();
     setCountries(data);
   } catch (error) {
