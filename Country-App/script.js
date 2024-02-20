@@ -1,6 +1,8 @@
 function setCountries(countries) {
   const parentEl = document.querySelector(".country__list");
-  countries.forEach((country) => {});
+  countries.forEach((country) => {
+    const li = document.createElement("li");
+  });
 }
 
 async function fetchCountry() {
