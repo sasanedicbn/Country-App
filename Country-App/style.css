@@ -107,10 +107,11 @@ option:focus {
     border-radius: 10px;
     padding: 20px;
     text-align: center;
-    list-style: none;
     width: 270px;
     height: 260px;
-
+}
+li{
+    list-style: none;
 }
 
 /* FOOTER */
