@@ -2,6 +2,11 @@ function setCountries(countries) {
   const parentEl = document.querySelector(".country__list");
   countries.forEach((country) => {
     const li = document.createElement("li");
+
+    const img = document.createElement("img");
+    img.classList.add("country__list__item");
+    img.src = country.flags.svg;
+    li.appendChild(img);
   });
 }
 
