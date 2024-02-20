@@ -27,6 +27,9 @@ select.addEventListener("change", function (event) {
 });
 
 async function fetchCountry(region) {
+  const url = region
+    ? `https://restcountries.com/v3.1/region/${region}`
+    : `https://restcountries.com/v3.1/all`;
   try {
     const response = await fetch(url);
     const data = await response.json();
