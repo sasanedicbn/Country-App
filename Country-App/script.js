@@ -7,6 +7,8 @@ function setCountries(countries) {
     img.classList.add("country__list__item");
     img.src = country.flags.svg;
     li.appendChild(img);
+
+    parentEl.appendChild(li);
   });
 }
 
