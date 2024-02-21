@@ -35,7 +35,7 @@ async function fetchCountry(region) {
   try {
     const response = await fetch(url);
     const data = await response.json();
-   
+    if (serchTerm)
     }
     setCountries(data);
   } catch (error) {
