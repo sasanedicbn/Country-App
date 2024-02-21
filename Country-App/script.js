@@ -1,6 +1,7 @@
 const select = document.querySelector("select");
 const parentEl = document.querySelector(".country__list");
 const searchCountry = document.querySelector("input");
+const serchTerm = searchCountry.value.toLowerCase();
 
 function setCountries(countries) {
   parentEl.innerHTML = "";
@@ -34,7 +35,8 @@ async function fetchCountry(region) {
   try {
     const response = await fetch(url);
     const data = await response.json();
-
+   
+    }
     setCountries(data);
   } catch (error) {
     console.log(error);
