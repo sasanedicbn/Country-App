@@ -29,6 +29,7 @@ select.addEventListener("change", function (event) {
   const region = event.target.value;
   fetchCountry(region);
 });
+const debouncedFetchCountry = _.debounce(fetchCountry, 300);
 
 async function fetchCountry(region) {
   const url = region
