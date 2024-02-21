@@ -35,7 +35,10 @@ async function fetchCountry(region) {
   try {
     const response = await fetch(url);
     const data = await response.json();
-    if (serchTerm)
+    if (serchTerm) {
+      data = data.filter((country) => {
+        country.name.common.toLowerCase().startsWith(serchTerm);
+      });
     }
     setCountries(data);
   } catch (error) {
