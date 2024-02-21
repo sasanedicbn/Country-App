@@ -1,9 +1,6 @@
-import _ from "lodash";
-
 const select = document.querySelector("select");
 const parentEl = document.querySelector(".country__list");
 const searchCountry = document.querySelector("input");
-const serchTerm = searchCountry.value.toLowerCase();
 
 function setCountries(countries) {
   parentEl.innerHTML = "";
@@ -29,18 +26,18 @@ select.addEventListener("change", function (event) {
   const region = event.target.value;
   fetchCountry(region);
 });
-const debouncedFetchCountry = _.debounce(fetchCountry, 300);
 
 async function fetchCountry(region) {
+  let serchTerm = searchCountry.value.toLowerCase();
   const url = region
     ? `https://restcountries.com/v3.1/region/${region}`
     : `https://restcountries.com/v3.1/all`;
   try {
     const response = await fetch(url);
-    const data = await response.json();
+    let data = await response.json();
     if (serchTerm) {
       data = data.filter((country) => {
-        country.name.common.toLowerCase().startsWith(serchTerm);
+        return country.name.common.toLowerCase().startsWith(serchTerm);
       });
     }
     setCountries(data);
