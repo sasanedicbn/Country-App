@@ -46,3 +46,4 @@ async function fetchCountry(region) {
   }
 }
 fetchCountry();
+searchCountry.addEventListener("input", function () {});
