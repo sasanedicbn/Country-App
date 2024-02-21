@@ -1,3 +1,5 @@
+import _ from "lodash";
+
 const select = document.querySelector("select");
 const parentEl = document.querySelector(".country__list");
 const searchCountry = document.querySelector("input");
