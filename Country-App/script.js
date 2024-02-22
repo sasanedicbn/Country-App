@@ -1,6 +1,7 @@
 const select = document.querySelector("select");
 const parentEl = document.querySelector(".country__list");
 const searchCountry = document.querySelector("input");
+const pagination = document.querySelector(".pagination");
 
 function setCountries(countries) {
   parentEl.innerHTML = "";
@@ -29,9 +30,11 @@ select.addEventListener("change", function (event) {
 
 async function fetchCountry(region) {
   let serchTerm = searchCountry.value.toLowerCase();
+
   const url = region
     ? `https://restcountries.com/v3.1/region/${region}`
     : `https://restcountries.com/v3.1/all`;
+
   try {
     const response = await fetch(url);
     let data = await response.json();
@@ -49,3 +52,4 @@ fetchCountry();
 searchCountry.addEventListener("input", function () {
   fetchCountry();
 });
+function paginate(array) {}
