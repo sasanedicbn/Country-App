@@ -12,7 +12,9 @@ function createPaginationButtons() {
     btn.textContent = i + 1;
     btn.addEventListener("click", function () {
       currentPage = i;
+      console.log("current page", currentPage + 1);
     });
+    pagination.appendChild(btn);
   }
 }
 createPaginationButtons();
