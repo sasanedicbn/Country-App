@@ -2,7 +2,11 @@ const select = document.querySelector("select");
 const parentEl = document.querySelector(".country__list");
 const searchCountry = document.querySelector("input");
 const pagination = document.querySelector(".pagination");
+const pageSize = 20;
+let currentPage = -1;
 
+function createPaginationButtons() {}
+createPaginationButtons();
 function setCountries(countries) {
   parentEl.innerHTML = "";
   countries.forEach((country) => {
@@ -52,4 +56,5 @@ fetchCountry();
 searchCountry.addEventListener("input", function () {
   fetchCountry();
 });
+
 function paginate(array) {}
