@@ -7,6 +7,7 @@ let currentPage = -1;
 
 function createPaginationButtons() {
   pagination.innerHTML = "";
+  for (let i = 0; i < pageSize; i++) {}
 }
 createPaginationButtons();
 function setCountries(countries) {
