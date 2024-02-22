@@ -9,6 +9,7 @@ function createPaginationButtons() {
   pagination.innerHTML = "";
   for (let i = 0; i < pageSize; i++) {
     const btn = document.createElement("button");
+    btn.textContent = i + 1;
   }
 }
 createPaginationButtons();
