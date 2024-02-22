@@ -5,7 +5,9 @@ const pagination = document.querySelector(".pagination");
 const pageSize = 20;
 let currentPage = -1;
 
-function createPaginationButtons() {}
+function createPaginationButtons() {
+  pagination.innerHTML = "";
+}
 createPaginationButtons();
 function setCountries(countries) {
   parentEl.innerHTML = "";
