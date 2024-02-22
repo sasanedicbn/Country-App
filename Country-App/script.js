@@ -10,6 +10,7 @@ function createPaginationButtons() {
   for (let i = 0; i < pageSize; i++) {
     const btn = document.createElement("button");
     btn.textContent = i + 1;
+    btn.addEventListener("click", function () {});
   }
 }
 createPaginationButtons();
