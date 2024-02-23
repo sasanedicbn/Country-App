@@ -70,4 +70,7 @@ searchCountry.addEventListener("input", function () {
   fetchCountry();
 });
 
-function paginate(array) {}
+function paginate(array) {
+  console.log(array);
+  const currentCountry = [];
+}
