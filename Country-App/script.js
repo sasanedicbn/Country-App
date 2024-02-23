@@ -12,6 +12,7 @@ function createPaginationButtons() {
     btn.textContent = i + 1;
     btn.addEventListener("click", function () {
       currentPage = i;
+      fetchCountry(select.value);
       console.log("current page", currentPage + 1);
     });
     pagination.appendChild(btn);
@@ -59,6 +60,7 @@ async function fetchCountry(region) {
       });
     }
     setCountries(data);
+    paginate(data);
   } catch (error) {
     console.log(error);
   }
