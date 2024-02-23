@@ -77,8 +77,7 @@ function paginate(array) {
   for (let i = 0; i < array.length; i += pageSize) {
     const chunk = array.slice(i, i + pageSize);
     currentCountry.push(chunk);
-    // console.log(chunk);
-    // console.log(currentCountry);
+
     setCountries(...currentCountry);
   }
 }
