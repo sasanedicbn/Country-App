@@ -4,10 +4,11 @@ const searchCountry = document.querySelector("input");
 const pagination = document.querySelector(".pagination");
 const pageSize = 20;
 let currentPage = -1;
+let currentCountry = [];
 
 function createPaginationButtons() {
   pagination.innerHTML = "";
-  for (let i = 0; i < pageSize; i++) {
+  for (let i = 0; i < currentCountry.length; i++) {
     const btn = document.createElement("button");
     btn.textContent = i + 1;
     btn.addEventListener("click", function () {
@@ -72,11 +73,12 @@ searchCountry.addEventListener("input", function () {
 
 function paginate(array) {
   console.log(array);
-  const currentCountry = [];
+
   for (let i = 0; i < array.length; i += pageSize) {
     const chunk = array.slice(i, i + pageSize);
     currentCountry.push(chunk);
     // console.log(chunk);
     // console.log(currentCountry);
+    setCountries(...currentCountry);
   }
 }
