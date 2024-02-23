@@ -14,7 +14,6 @@ function createPaginationButtons() {
     btn.addEventListener("click", function () {
       currentPage = i;
       fetchCountry(select.value);
-      console.log("current page", currentPage + 1);
     });
     pagination.appendChild(btn);
   }
