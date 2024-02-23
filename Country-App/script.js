@@ -69,7 +69,7 @@ fetchCountry();
 const debounceFetchCountry = _.debounce(fetchCountry, 300);
 
 searchCountry.addEventListener("input", function () {
-  fetchCountry();
+  debounceFetchCountry();
 });
 
 function paginate(array) {
