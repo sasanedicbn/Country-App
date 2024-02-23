@@ -73,4 +73,5 @@ searchCountry.addEventListener("input", function () {
 function paginate(array) {
   console.log(array);
   const currentCountry = [];
+  for (let i = 0; i < array.length; i += pageSize) {}
 }
