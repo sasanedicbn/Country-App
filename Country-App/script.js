@@ -3,7 +3,7 @@ const parentEl = document.querySelector(".country__list");
 const searchCountry = document.querySelector("input");
 const pagination = document.querySelector(".pagination");
 const pageSize = 20;
-let currentPage = -1;
+let currentPage;
 let currentCountry = [];
 
 function createPaginationButtons() {
@@ -13,7 +13,7 @@ function createPaginationButtons() {
     btn.textContent = i + 1;
     btn.addEventListener("click", function () {
       currentPage = i;
-      fetchCountry(select.value);
+      setCountries(currentCountry[currentPage]);
     });
     pagination.appendChild(btn);
   }
@@ -71,12 +71,14 @@ searchCountry.addEventListener("input", function () {
 });
 
 function paginate(array) {
-  console.log(array);
+  currentCountry = [];
 
   for (let i = 0; i < array.length; i += pageSize) {
     const chunk = array.slice(i, i + pageSize);
     currentCountry.push(chunk);
 
-    setCountries(...currentCountry);
+    currentPage = 0;
+    setCountries(currentCountry[currentPage]);
+    createPaginationButtons();
   }
 }
