@@ -66,6 +66,8 @@ async function fetchCountry(region) {
   }
 }
 fetchCountry();
+const debounceFetchCountry = _.debounce(fetchCountry, 300);
+
 searchCountry.addEventListener("input", function () {
   fetchCountry();
 });
