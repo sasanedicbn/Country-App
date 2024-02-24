@@ -42,7 +42,8 @@ header{
 main{
     width: 85%;
     height: 800px;
-    margin:30px auto;
+   
+    margin: 30px auto;
     
     /* margin: 20px 100px; */
 }
