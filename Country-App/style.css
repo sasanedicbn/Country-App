@@ -144,4 +144,26 @@ li{
     background-color: #007bff;
     color: #fff;
   }
+  /* STYLE FOR BTNS */
+  .pagination-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .pagination-buttons button {
+    padding: 8px 16px;
+    margin: 0 5px;
+    background-color: rgb(123, 120, 120);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .pagination-buttons button:hover {
+    background-color: #558dc9;
+  }
   
