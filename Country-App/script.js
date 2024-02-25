@@ -90,4 +90,9 @@ function paginate(array) {
     createPaginationButtons();
   }
 }
-prevBtn.addEventListener("click", function () {});
+prevBtn.addEventListener("click", function () {
+  if (currentPage > 0) {
+    currentPage--;
+    setCountries(currentCountry[currentPage]);
+  }
+});
