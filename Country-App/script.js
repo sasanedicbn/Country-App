@@ -6,10 +6,6 @@ const searchCountry = document.querySelector("input");
 const pagination = document.querySelector(".pagination");
 const header = document.querySelector("header");
 const main = document.querySelector("body");
-// const darkVersion = document.querySelector(".brightness");
-// const headerTitle = document.querySelector(".header-title");
-// const icon = document.querySelector(".iconWorld");
-// const iconSun = document.querySelector(".iconSun");
 
 const pageSize = 20;
 let currentPage;
@@ -93,15 +89,3 @@ function paginate(array) {
     createPaginationButtons();
   }
 }
-// darkVersion.addEventListener("click", function () {
-//   const country = document.querySelectorAll(".country__list__item");
-//   select.style.background = "#000000B3";
-//   searchCountry.style.background = "#000000B3";
-//   header.style.background = "#000000B3";
-//   main.style.background = "#000000B3";
-//   icon.style.color = "white";
-//   headerTitle.style.color = "white";
-//   darkVersion.style.color = "white";
-//   iconSun.style.color = "white";
-//   // country.style.background = "#000000B3";
-// });
