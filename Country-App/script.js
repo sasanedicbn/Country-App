@@ -90,3 +90,4 @@ function paginate(array) {
     createPaginationButtons();
   }
 }
+prevBtn.addEventListener("click", function () {});
