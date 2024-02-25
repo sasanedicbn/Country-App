@@ -1,8 +1,8 @@
 const select = document.querySelector("select");
-// i ovo gore treba u black
+
 const parentEl = document.querySelector(".country__list");
 const searchCountry = document.querySelector("input");
-// search se odnosi na input polje ovo gore
+
 const pagination = document.querySelector(".pagination");
 const header = document.querySelector("header");
 const main = document.querySelector("body");
