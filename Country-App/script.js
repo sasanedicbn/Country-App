@@ -96,3 +96,4 @@ prevBtn.addEventListener("click", function () {
     setCountries(currentCountry[currentPage]);
   }
 });
+nextBtn.addEventListener('click', function())
