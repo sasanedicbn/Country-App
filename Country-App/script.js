@@ -96,4 +96,7 @@ prevBtn.addEventListener("click", function () {
     setCountries(currentCountry[currentPage]);
   }
 });
-nextBtn.addEventListener('click', function())
+nextBtn.addEventListener("click", function () {
+  if (currentPage < 0) {
+  }
+});
