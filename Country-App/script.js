@@ -8,7 +8,7 @@ const header = document.querySelector("header");
 const main = document.querySelector("body");
 const prevBtn = document.getElementById("prevPage");
 const nextBtn = document.getElementById("nextPage");
-console.log(nextBtn);
+
 const pageSize = 20;
 let currentPage;
 let currentCountry = [];
