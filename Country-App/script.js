@@ -130,3 +130,4 @@ nextBtn.addEventListener("click", function () {
 // windows.location.href is not a method,
 //  it's a property that will tell you the current URL location of the browser. Changing the value of the property will redirect the page.
 //
+// window.open() is a method that you can pass a URL to that you want to open in a new window.
