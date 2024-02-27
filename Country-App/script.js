@@ -103,3 +103,6 @@ nextBtn.addEventListener("click", function () {
     setCountries(currentCountry[currentPage]);
   }
 });
+// POPSATE
+// this is event of windwows interface and then this fired when we click on button back or forward (change history)
+// syntax is addEventListener("popstate", (event) => {})
