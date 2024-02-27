@@ -103,6 +103,9 @@ nextBtn.addEventListener("click", function () {
     setCountries(currentCountry[currentPage]);
   }
 });
-// POPSATE
+// POPSTATE
 // this is event of windwows interface and then this fired when we click on button back or forward (change history)
 // syntax is addEventListener("popstate", (event) => {})
+// ONE MORE EXAMPLE WHEN WE CAN USE POPSTATE
+// we can use popstate when we want implement navigation on single page and we click on <a></a> (some link on page)
+// which uses JavaScript to dynamically load content we can update URL with (history.pushState, history.replaceState())
