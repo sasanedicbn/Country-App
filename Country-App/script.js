@@ -127,3 +127,6 @@ nextBtn.addEventListener("click", function () {
 // stateObj: An object representing the new state in the history.
 // title: The title of the state.
 // url: The URL you want to set.
+// windows.location.href is not a method,
+//  it's a property that will tell you the current URL location of the browser. Changing the value of the property will redirect the page.
+//
