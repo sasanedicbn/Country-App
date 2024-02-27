@@ -119,3 +119,11 @@ nextBtn.addEventListener("click", function () {
 // stateObj: An object representing the state you're adding to the history. This object can contain any data you want to associate with that state.
 // title: The title of the state. Some browsers don't use it, so it's usually an empty string ('').
 // url: The URL you want to set.
+// HISTORY.REPLACESTATE()
+// The replaceState() method replaces the current state in the browser's history with a new state.
+// It's used when you want to replace the current state without adding a new entry to the history.
+// Like pushState(), it allows you to change the URL in the browser's address bar without actually loading a new page.
+// Method structure: history.replaceState(stateObj, title, url).
+// stateObj: An object representing the new state in the history.
+// title: The title of the state.
+// url: The URL you want to set.
