@@ -8,6 +8,10 @@ class Router {
   go(route) {
     history.pushState({ page: route }, null, route);
   }
+
+  back() {
+    history.back();
+  }
 }
 
 export default Router;
