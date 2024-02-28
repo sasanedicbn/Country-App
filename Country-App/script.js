@@ -13,46 +13,68 @@ const nextBtn = document.getElementById("nextPage");
 const pageSize = 20;
 let currentPage;
 let currentCountry = [];
+const worldCountry = () => {
+  const createPaginationButtons = () => {
+    pagination.innerHTML = "";
+    for (let i = 0; i < currentCountry.length; i++) {
+      const btn = document.createElement("button");
+      btn.textContent = i + 1;
+      btn.addEventListener("click", function () {
+        currentPage = i;
+        setCountries(currentCountry[currentPage]);
+      });
+      pagination.appendChild(btn);
+    }
+  };
+  const setCountries = (countries) => {
+    parentEl.innerHTML = "";
+    if (!countries) return;
 
-function createPaginationButtons() {
-  pagination.innerHTML = "";
-  for (let i = 0; i < currentCountry.length; i++) {
-    const btn = document.createElement("button");
-    btn.textContent = i + 1;
-    btn.addEventListener("click", function () {
-      currentPage = i;
-      setCountries(currentCountry[currentPage]);
+    countries.forEach((country) => {
+      const li = document.createElement("li");
+
+      const img = document.createElement("img");
+      img.classList.add("country__list__item");
+      img.src = country.flags.svg;
+      li.appendChild(img);
+
+      const name = document.createElement("p");
+      name.classList.add("country-name");
+      name.textContent = country.name.common;
+      li.appendChild(name);
+
+      parentEl.appendChild(li);
     });
-    pagination.appendChild(btn);
-  }
-}
-createPaginationButtons();
-function setCountries(countries) {
-  parentEl.innerHTML = "";
-  if (!countries) return;
+  };
+  const paginate = (array) => {
+    currentCountry = [];
 
-  countries.forEach((country) => {
-    const li = document.createElement("li");
+    for (let i = 0; i < array.length; i += pageSize) {
+      const chunk = array.slice(i, i + pageSize);
+      currentCountry.push(chunk);
 
-    const img = document.createElement("img");
-    img.classList.add("country__list__item");
-    img.src = country.flags.svg;
-    li.appendChild(img);
+      currentPage = 0;
+      setCountries(currentCountry[currentPage]);
+      createPaginationButtons();
+    }
+  };
 
-    const name = document.createElement("p");
-    name.classList.add("country-name");
-    name.textContent = country.name.common;
-    li.appendChild(name);
+  const debounceFetchCountry = _.debounce(fetchCountry, 300);
+  return {
+    createPaginationButtons,
+    setCountries,
+    paginate,
+    debounceFetchCountry,
+  };
+};
+const COUNTRY = worldCountry();
 
-    parentEl.appendChild(li);
-  });
-}
+COUNTRY.createPaginationButtons();
 
 select.addEventListener("change", function (event) {
   const region = event.target.value;
   fetchCountry(region);
 });
-
 async function fetchCountry(region) {
   let serchTerm = searchCountry.value.toLowerCase();
 
@@ -68,41 +90,28 @@ async function fetchCountry(region) {
         return country.name.common.toLowerCase().startsWith(serchTerm);
       });
     }
-    setCountries(data);
-    paginate(data);
+    COUNTRY.setCountries(data);
+    COUNTRY.paginate(data);
   } catch (error) {
     console.log(error);
   }
 }
 fetchCountry();
-const debounceFetchCountry = _.debounce(fetchCountry, 300);
 
 searchCountry.addEventListener("input", function () {
-  debounceFetchCountry();
+  COUNTRY.debounceFetchCountry();
 });
 
-function paginate(array) {
-  currentCountry = [];
-
-  for (let i = 0; i < array.length; i += pageSize) {
-    const chunk = array.slice(i, i + pageSize);
-    currentCountry.push(chunk);
-
-    currentPage = 0;
-    setCountries(currentCountry[currentPage]);
-    createPaginationButtons();
-  }
-}
 prevBtn.addEventListener("click", function () {
   if (currentPage > 0) {
     currentPage--;
-    setCountries(currentCountry[currentPage]);
+    COUNTRY.setCountries(currentCountry[currentPage]);
   }
 });
 nextBtn.addEventListener("click", function () {
   if (currentPage < currentCountry.length - 1) {
     currentPage++;
-    setCountries(currentCountry[currentPage]);
+    COUNTRY.setCountries(currentCountry[currentPage]);
   }
 });
 // POPSTATE
