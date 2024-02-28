@@ -4,6 +4,10 @@ class Router {
   init() {
     history.pushState({ page: "home" }, null, "/");
   }
+
+  go(route) {
+    history.pushState({ page: route }, null, route);
+  }
 }
 
 export default Router;
