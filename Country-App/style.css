@@ -167,3 +167,9 @@ li{
     background-color: #558dc9;
   }
   
+  /* single country */
+  .main-country{
+    background-color: red;
+    width: 400px;
+    height: 200px;
+  }

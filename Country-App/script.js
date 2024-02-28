@@ -29,9 +29,10 @@ function createPaginationButtons() {
 createPaginationButtons();
 function setCountries(countries) {
   parentEl.innerHTML = "";
+  if (!countries) return;
+
   countries.forEach((country) => {
     const li = document.createElement("li");
-    console.log(countries);
 
     const img = document.createElement("img");
     img.classList.add("country__list__item");
@@ -130,7 +131,7 @@ nextBtn.addEventListener("click", function () {
 // url: The URL you want to set.
 // windows.location.href is not a method,
 //  it's a property that will tell you the current URL location of the browser. Changing the value of the property will redirect the page.
-//
+
 // window.open() is a method that you can pass a URL to that you want to open in a new window.
 const router = new Router();
 router.init();
