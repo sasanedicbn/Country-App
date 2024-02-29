@@ -168,4 +168,7 @@ li{
   }
   
   /* single country */
- 
+ .country-link{
+   text-decoration: none;
+   color: rgb(97, 97, 97);
+ }
