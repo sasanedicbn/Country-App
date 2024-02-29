@@ -1,4 +1,3 @@
-import Router from "./router";
 const select = document.querySelector("select");
 
 const parentEl = document.querySelector(".country__list");
@@ -15,6 +14,7 @@ const link2 = document.querySelector(".link2");
 const pageSize = 20;
 let currentPage;
 let currentCountry = [];
+let nameCountry;
 const worldCountry = () => {
   const createPaginationButtons = () => {
     pagination.innerHTML = "";
@@ -49,7 +49,9 @@ const worldCountry = () => {
       name.classList.add("country-name");
       name.textContent = country.name.common;
       link.appendChild(name);
-
+      link.addEventListener("click", function () {
+        nameCountry = country.name.common;
+      });
       parentEl.appendChild(li);
     });
   };
@@ -151,6 +153,7 @@ link.addEventListener("click", function () {
 
 window.addEventListener("popstate", function () {
   console.log("pop");
+  console.log(nameCountry);
   console.log(window.location.href);
   const host = window.location.host;
   const pathname = window.location.pathname;
@@ -158,14 +161,28 @@ window.addEventListener("popstate", function () {
   const hash = window.location.hash;
 
   console.log(host, pathname, search, hash);
-  getCountry();
 });
 
-function getCountry(event) {
-  if (event.target.closest(".country__list")) {
-    console.log("radi");
-  }
-}
+// function country(data) {
+//   data.forEach((country) => {
+//     console.log(country);
+//   });
+// }
+// country();
+// function getCountry() {
+//   console.log(currentCountry);
+// event.preventDefault();
+// const countryListItem = event.target.closest(".country__list");
+// if (countryListItem) {
+//   const countryName =
+//     countryListItem.querySelector(".country-name").textContent;
+//   console.log("Kliknuta država:", countryName);
+
+//   const flagURL = countryListItem.querySelector("img").src;
+//   console.log("URL zastave:", flagURL);
+// }
+// }
+
 // link2.addEventListener("click", function (event) {
 //   // event.preventDefault();
 //   history.replaceState({ homePage: "Home Page" }, null, "masnisir");
