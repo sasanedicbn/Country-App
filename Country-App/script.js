@@ -51,6 +51,11 @@ const worldCountry = () => {
       link.appendChild(name);
       link.addEventListener("click", function () {
         nameCountry = country.name.common;
+        history.replaceState(
+          {},
+          null,
+          nameCountry.replace(/ /g, "-").toLowerCase()
+        );
       });
       parentEl.appendChild(li);
     });
@@ -160,7 +165,7 @@ window.addEventListener("popstate", function () {
   const search = window.location.search;
   const hash = window.location.hash;
 
-  console.log(host, pathname, search, hash);
+  console.log(host, pathname, search, nameCountry);
 });
 
 // function country(data) {
@@ -183,9 +188,9 @@ window.addEventListener("popstate", function () {
 // }
 // }
 
-// link2.addEventListener("click", function (event) {
-//   // event.preventDefault();
-//   history.replaceState({ homePage: "Home Page" }, null, "masnisir");
-//   console.log("link2");
-//   // window.location.href = "masnisir";
-// });
+link2.addEventListener("click", function (event) {
+  // event.preventDefault();
+  history.replaceState({ homePage: "Home Page" }, null, nameCountry);
+  console.log("link2");
+  // window.location.href = "masnisir";
+});
