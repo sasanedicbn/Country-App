@@ -169,8 +169,6 @@ window.addEventListener("popstate", function () {
 });
 
 link2.addEventListener("click", function (event) {
-  // event.preventDefault();
   history.replaceState({ homePage: "Home Page" }, null, nameCountry);
   console.log("link2");
-  // window.location.href = "masnisir";
 });
