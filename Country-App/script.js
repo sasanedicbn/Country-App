@@ -168,26 +168,6 @@ window.addEventListener("popstate", function () {
   console.log(host, pathname, search, nameCountry);
 });
 
-// function country(data) {
-//   data.forEach((country) => {
-//     console.log(country);
-//   });
-// }
-// country();
-// function getCountry() {
-//   console.log(currentCountry);
-// event.preventDefault();
-// const countryListItem = event.target.closest(".country__list");
-// if (countryListItem) {
-//   const countryName =
-//     countryListItem.querySelector(".country-name").textContent;
-//   console.log("Kliknuta država:", countryName);
-
-//   const flagURL = countryListItem.querySelector("img").src;
-//   console.log("URL zastave:", flagURL);
-// }
-// }
-
 link2.addEventListener("click", function (event) {
   // event.preventDefault();
   history.replaceState({ homePage: "Home Page" }, null, nameCountry);
