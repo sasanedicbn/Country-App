@@ -9,6 +9,8 @@ const header = document.querySelector("header");
 const main = document.querySelector("body");
 const prevBtn = document.getElementById("prevPage");
 const nextBtn = document.getElementById("nextPage");
+const link = document.querySelector("a");
+const link2 = document.querySelector(".link2");
 
 const pageSize = 20;
 let currentPage;
@@ -70,6 +72,7 @@ const worldCountry = () => {
 const COUNTRY = worldCountry();
 
 COUNTRY.createPaginationButtons();
+fetchCountry();
 
 select.addEventListener("change", function (event) {
   const region = event.target.value;
@@ -96,7 +99,6 @@ async function fetchCountry(region) {
     console.log(error);
   }
 }
-fetchCountry();
 
 searchCountry.addEventListener("input", function () {
   COUNTRY.debounceFetchCountry();
@@ -114,6 +116,7 @@ nextBtn.addEventListener("click", function () {
     COUNTRY.setCountries(currentCountry[currentPage]);
   }
 });
+
 // POPSTATE
 // this is event of windwows interface and then this fired when we click on button back or forward (change history)
 // syntax is addEventListener("popstate", (event) => {})
@@ -134,13 +137,25 @@ nextBtn.addEventListener("click", function () {
 // The replaceState() method replaces the current state in the browser's history with a new state.
 // It's used when you want to replace the current state without adding a new entry to the history.
 // Like pushState(), it allows you to change the URL in the browser's address bar without actually loading a new page.
-// Method structure: history.replaceState(stateObj, title, url).
-// stateObj: An object representing the new state in the history.
-// title: The title of the state.
-// url: The URL you want to set.
-// windows.location.href is not a method,
-//  it's a property that will tell you the current URL location of the browser. Changing the value of the property will redirect the page.
 
-// window.open() is a method that you can pass a URL to that you want to open in a new window.
-const router = new Router();
-router.init();
+window.addEventListener("DOMContentLoaded", function () {});
+link.addEventListener("click", function () {
+  console.log("nemanja");
+  history.replaceState({ homePage: "Home Page" }, null, "");
+});
+
+window.addEventListener("popstate", function () {
+  console.log("pop");
+  console.log(window.location.href);
+  const host = window.location.host;
+  const pathname = window.location.pathname;
+  const search = window.location.search;
+  const hash = window.location.hash;
+  console.log(host, pathname, search, hash);
+});
+link2.addEventListener("click", function (event) {
+  // event.preventDefault();
+  history.replaceState({ homePage: "Home Page" }, null, "masnisir");
+  console.log("link2");
+  // window.location.href = "masnisir";
+});
