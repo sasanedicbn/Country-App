@@ -49,8 +49,14 @@ const worldCountry = () => {
       name.classList.add("country-name");
       name.textContent = country.name.common;
       link.appendChild(name);
+
       link.addEventListener("click", function (event) {
         event.preventDefault();
+        const linkBack = document.createElement("a");
+        linkBack.classList.add("linkBack");
+        linkBack.href = "#";
+        linkBack.textContent = "← BACK";
+        header.appendChild(linkBack);
         nameCountry = country.name.common;
         history.replaceState(
           null,
@@ -58,9 +64,11 @@ const worldCountry = () => {
           nameCountry.replace(/ /g, "-").toLowerCase()
         );
         const selectedCountryData = [country];
+
         setCountries(selectedCountryData);
         createPaginationButtons(null);
       });
+
       parentEl.appendChild(li);
     });
   };
@@ -190,9 +198,9 @@ window.addEventListener("popstate", function () {
 // }
 // }
 
-link2.addEventListener("click", function (event) {
-  // event.preventDefault();
-  history.replaceState({ homePage: "Home Page" }, null, nameCountry);
-  console.log("link2");
-  // window.location.href = "masnisir";
-});
+// link2.addEventListener("click", function (event) {
+//   event.preventDefault();
+//   history.replaceState({ homePage: "Home Page" }, null, nameCountry);
+//   console.log("link2");
+//   window.location.href = "masnisir";
+// });
