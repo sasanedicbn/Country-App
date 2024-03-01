@@ -141,6 +141,15 @@ nextBtn.addEventListener("click", function () {
   }
 });
 
+window.addEventListener("DOMContentLoaded", function () {
+  history.replaceState({ homePage: "Home Page" }, null, "");
+});
+
+window.addEventListener("popstate", function () {
+  fetchCountry();
+  history.replaceState({ homePage: "Home Page" }, null, "/");
+});
+
 // POPSTATE
 // this is event of windwows interface and then this fired when we click on button back or forward (change history)
 // syntax is addEventListener("popstate", (event) => {})
@@ -161,21 +170,3 @@ nextBtn.addEventListener("click", function () {
 // The replaceState() method replaces the current state in the browser's history with a new state.
 // It's used when you want to replace the current state without adding a new entry to the history.
 // Like pushState(), it allows you to change the URL in the browser's address bar without actually loading a new page.
-
-window.addEventListener("DOMContentLoaded", function () {
-  history.replaceState({ homePage: "Home Page" }, null, "");
-});
-
-window.addEventListener("popstate", function () {
-  // console.log("pop");
-  // console.log(nameCountry);
-  // console.log(window.location.href);
-  // const host = window.location.host;
-  // const pathname = window.location.pathname;
-  // const search = window.location.search;
-  // const hash = window.location.hash;
-  fetchCountry();
-
-  // console.log(host, pathname, search, nameCountry);
-  history.replaceState({ homePage: "Home Page" }, null, "/");
-});
