@@ -49,13 +49,17 @@ const worldCountry = () => {
       name.classList.add("country-name");
       name.textContent = country.name.common;
       link.appendChild(name);
-      link.addEventListener("click", function () {
+      link.addEventListener("click", function (event) {
+        event.preventDefault();
         nameCountry = country.name.common;
         history.replaceState(
-          {},
+          null,
           null,
           nameCountry.replace(/ /g, "-").toLowerCase()
         );
+        const selectedCountryData = [country];
+        setCountries(selectedCountryData);
+        createPaginationButtons(null);
       });
       parentEl.appendChild(li);
     });
@@ -150,9 +154,7 @@ nextBtn.addEventListener("click", function () {
 // It's used when you want to replace the current state without adding a new entry to the history.
 // Like pushState(), it allows you to change the URL in the browser's address bar without actually loading a new page.
 
-window.addEventListener("DOMContentLoaded", function () {});
-link.addEventListener("click", function () {
-  console.log("nemanja");
+window.addEventListener("DOMContentLoaded", function () {
   history.replaceState({ homePage: "Home Page" }, null, "");
 });
 
@@ -164,11 +166,33 @@ window.addEventListener("popstate", function () {
   const pathname = window.location.pathname;
   const search = window.location.search;
   const hash = window.location.hash;
-
+  fetchCountry();
   console.log(host, pathname, search, nameCountry);
 });
 
+// function country(data) {
+//   data.forEach((country) => {
+//     console.log(country);
+//   });
+// }
+// country();
+// function getCountry() {
+//   console.log(currentCountry);
+// event.preventDefault();
+// const countryListItem = event.target.closest(".country__list");
+// if (countryListItem) {
+//   const countryName =
+//     countryListItem.querySelector(".country-name").textContent;
+//   console.log("Kliknuta država:", countryName);
+
+//   const flagURL = countryListItem.querySelector("img").src;
+//   console.log("URL zastave:", flagURL);
+// }
+// }
+
 link2.addEventListener("click", function (event) {
+  // event.preventDefault();
   history.replaceState({ homePage: "Home Page" }, null, nameCountry);
   console.log("link2");
+  // window.location.href = "masnisir";
 });
