@@ -17,6 +17,8 @@ const pageSize = 20;
 let currentPage;
 let currentCountry = [];
 let nameCountry;
+let linkBack;
+let detailsContainer;
 const worldCountry = () => {
   const createPaginationButtons = () => {
     pagination.innerHTML = "";
@@ -54,7 +56,7 @@ const worldCountry = () => {
 
       link.addEventListener("click", function (event) {
         event.preventDefault();
-        const linkBack = document.createElement("a");
+        linkBack = document.createElement("a");
         linkBack.classList.add("linkBack");
         linkBack.href = "#";
         linkBack.textContent = "← BACK";
@@ -69,9 +71,6 @@ const worldCountry = () => {
         console.log(selectedCountryData);
         fetchdetailsCountry(selectedCountryData);
         displayCountryDetails(selectedCountryData);
-
-        // setCountries(selectedCountryData);
-        // createPaginationButtons(null);
       });
 
       parentEl.appendChild(li);
@@ -146,7 +145,7 @@ async function fetchdetailsCountry(name) {
 function displayCountryDetails(country) {
   console.log(country);
   const detaildCountry = country[0];
-  const detailsContainer = document.querySelector(".country-details");
+  detailsContainer = document.querySelector(".country-details");
   detailsContainer.innerHTML = "";
 
   // Create elements to display country details
@@ -203,6 +202,8 @@ window.addEventListener("popstate", function () {
   history.replaceState({ homePage: "Home Page" }, null, "/");
   paginationBtns.style.display = "flex";
   searchBar.style.display = "flex";
+  linkBack.style.display = "none";
+  detailsContainer.style.display = "none";
 });
 
 // POPSTATE
