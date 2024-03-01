@@ -67,8 +67,15 @@ const worldCountry = () => {
           null,
           nameCountry.replace(/ /g, "-").toLowerCase()
         );
-        const selectedCountryData = [country];
-        console.log(selectedCountryData);
+        const selectedCountryData = country;
+        console.log(country);
+        const {
+          name: { common },
+          maps: { googleMaps },
+        } = country;
+
+        // OBJECT DESTRUCTURING 2X DEEP
+        console.log(common, googleMaps);
         fetchdetailsCountry(selectedCountryData);
         displayCountryDetails(selectedCountryData);
       });
@@ -128,18 +135,18 @@ async function fetchCountry(region) {
   }
 }
 async function fetchdetailsCountry(name) {
+  console.log(name);
   const fetchedCountry = name[0].name.common;
 
-  console.log(fetchedCountry);
-  const fetccouhed = `https://restcountries.com/v3.1/name/${fetchCountry}`;
+  const fetchCountry = `https://restcountries.com/v3.1/name/${fetchCountry}`;
 
   try {
-    const response = await fetccouhed(fetccouhed);
+    const response = await fetch(fetchCountry);
     let fetched = await response.json();
+
     displayCountryDetails(name[0]);
-    console.log(fetched);
   } catch (error) {
-    // console.log(error);
+    console.log(error);
   }
 }
 function displayCountryDetails(country) {
