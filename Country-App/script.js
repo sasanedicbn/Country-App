@@ -10,6 +10,8 @@ const prevBtn = document.getElementById("prevPage");
 const nextBtn = document.getElementById("nextPage");
 const link = document.querySelector("a");
 const link2 = document.querySelector(".link2");
+const paginationBtns = document.querySelector(".pagination-buttons");
+const searchBar = document.querySelector(".search__bar__container");
 
 const pageSize = 20;
 let currentPage;
@@ -64,9 +66,12 @@ const worldCountry = () => {
           nameCountry.replace(/ /g, "-").toLowerCase()
         );
         const selectedCountryData = [country];
+        console.log(selectedCountryData);
+        fetchdetailsCountry(selectedCountryData);
+        displayCountryDetails(selectedCountryData);
 
-        setCountries(selectedCountryData);
-        createPaginationButtons(null);
+        // setCountries(selectedCountryData);
+        // createPaginationButtons(null);
       });
 
       parentEl.appendChild(li);
@@ -123,6 +128,54 @@ async function fetchCountry(region) {
     console.log(error);
   }
 }
+async function fetchdetailsCountry(name) {
+  const fetchedCountry = name[0].name.common;
+
+  console.log(fetchedCountry);
+  const fetccouhed = `https://restcountries.com/v3.1/name/${fetchCountry}`;
+
+  try {
+    const response = await fetccouhed(fetccouhed);
+    let fetched = await response.json();
+    displayCountryDetails(name[0]);
+    console.log(fetched);
+  } catch (error) {
+    // console.log(error);
+  }
+}
+function displayCountryDetails(country) {
+  console.log(country);
+  const detaildCountry = country[0];
+  const detailsContainer = document.querySelector(".country-details");
+  detailsContainer.innerHTML = "";
+
+  // Create elements to display country details
+  const name = document.createElement("h2");
+  name.textContent = detaildCountry.name.common;
+
+  const capital = document.createElement("p");
+  capital.textContent = "Capital: " + detaildCountry.capital;
+
+  const population = document.createElement("p");
+  population.textContent =
+    "Population: " + detaildCountry.population.toLocaleString();
+
+  const img = document.createElement("img");
+  img.classList.add("country__list__item");
+  img.src = detaildCountry.flags.svg;
+
+  detailsContainer.appendChild(img);
+  detailsContainer.appendChild(name);
+  detailsContainer.appendChild(capital);
+  detailsContainer.appendChild(population);
+  // Add more details as needed
+
+  // Show details container
+  detailsContainer.style.display = "block";
+  COUNTRY.setCountries("");
+  paginationBtns.style.display = "none";
+  searchBar.style.display = "none";
+}
 
 searchCountry.addEventListener("input", function () {
   COUNTRY.debounceFetchCountry();
@@ -148,6 +201,8 @@ window.addEventListener("DOMContentLoaded", function () {
 window.addEventListener("popstate", function () {
   fetchCountry();
   history.replaceState({ homePage: "Home Page" }, null, "/");
+  paginationBtns.style.display = "flex";
+  searchBar.style.display = "flex";
 });
 
 // POPSTATE

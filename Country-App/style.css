@@ -51,6 +51,7 @@ main{
     display: flex;
     justify-content: space-between;
     padding: 30px 125px;
+    
 }
 .search__bar{
     position: relative;
@@ -180,4 +181,12 @@ li{
     color: #458cd7;
     cursor: pointer;
     text-decoration: none;
+ }
+ .country-details{
+    display: none;
+    margin: 0 auto;
+    width: 800px;
+    height: 400px;
+    
+    text-align: center;
  }
