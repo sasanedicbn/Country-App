@@ -167,40 +167,15 @@ window.addEventListener("DOMContentLoaded", function () {
 });
 
 window.addEventListener("popstate", function () {
-  console.log("pop");
-  console.log(nameCountry);
-  console.log(window.location.href);
-  const host = window.location.host;
-  const pathname = window.location.pathname;
-  const search = window.location.search;
-  const hash = window.location.hash;
+  // console.log("pop");
+  // console.log(nameCountry);
+  // console.log(window.location.href);
+  // const host = window.location.host;
+  // const pathname = window.location.pathname;
+  // const search = window.location.search;
+  // const hash = window.location.hash;
   fetchCountry();
-  console.log(host, pathname, search, nameCountry);
+
+  // console.log(host, pathname, search, nameCountry);
+  history.replaceState({ homePage: "Home Page" }, null, "/");
 });
-
-// function country(data) {
-//   data.forEach((country) => {
-//     console.log(country);
-//   });
-// }
-// country();
-// function getCountry() {
-//   console.log(currentCountry);
-// event.preventDefault();
-// const countryListItem = event.target.closest(".country__list");
-// if (countryListItem) {
-//   const countryName =
-//     countryListItem.querySelector(".country-name").textContent;
-//   console.log("Kliknuta država:", countryName);
-
-//   const flagURL = countryListItem.querySelector("img").src;
-//   console.log("URL zastave:", flagURL);
-// }
-// }
-
-// link2.addEventListener("click", function (event) {
-//   event.preventDefault();
-//   history.replaceState({ homePage: "Home Page" }, null, nameCountry);
-//   console.log("link2");
-//   window.location.href = "masnisir";
-// });
